@@ -147,4 +147,20 @@ select *from sailors where sname like '%bb%';
 select *from sailors where sname like 'd%';
 
 select *from sailors where sname like 'D%';
+--select * from sailors;
+--colors of boats reseved by lubber
+--select color from sailors s, boats b,reserves r where s.sid=r.sid and b.bid=r.bid and s.sname='Lubber';
+--all sailors sids who have rating atleast 8 or reserved boat 103?
+/*select sid from sailors where rating>=8
+union
+(select sid from reserves R where R.sid=103);*/
+-- names of sailors who reseve all boats
+--select sname from Sailors s where not exists
+--(select *from boats b where not exists(select * from reserves r where r.sid=s.sid and b.bid=r.bid));
+--select * from boats;
+--select * from reserves;
+--select sname ,age from sailors where age in (select max(age) from sailors);
+--REATE VIEW NAME AS SELECT SNAME,RATING FROM SAILORS ORDER BY RATING DESC;
+--SELECT * FROM NAME;
+--SELECT S.SID,COUNT(R.BID) FROM SAILORS S ,RESERVES R WHERE S.SID=R.SID GROUP BY R.SID HAVING COUNT(R.BID)>=2;
 
